@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int main(){
@@ -10,7 +10,7 @@ int main(){
 	} 
 	//冒泡，不断比较相邻的两个数，如果顺序错了，那么就交换
 	for(int i=0;i<n-1;i++){
-		for(int j=1;j<n-1;j++){
+		for(int j=1;j<n-i;j++){
 			if(a[j-1]>a[j]){
 				int temp=a[j];
 				a[j]=a[j-1];
