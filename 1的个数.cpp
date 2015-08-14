@@ -3,9 +3,10 @@ using namespace std;
 
 int main(){
 	int num;
+	cin>>num;
 	int numOf1[num];
 	int array[num];
-	cin>>num;
+	
 	//得到输入的树 
 	for(int k=0;k<num;k++){
 		cin>>array[k];
