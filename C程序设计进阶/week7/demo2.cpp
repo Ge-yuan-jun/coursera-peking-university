@@ -1,12 +1,4 @@
 /**
-* @Author: geyuanjun
-* @Date:   2016-07-15 12:58:0
-* @Email:  geyuanjun.sh@superjia.com
-* @Last modified by:   geyuanjun
-* @Last modified time: 2016-07-15 13:04:11
-*/
-
-/**
 * 结构体变量赋值
 * 结构体赋值相当于copy一份给对方
 * 与js中的对象不同

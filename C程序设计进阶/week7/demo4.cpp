@@ -1,11 +1,3 @@
-/**
-* @Author: geyuanjun
-* @Date:   2016-07-15 13:33:8
-* @Email:  geyuanjun.sh@superjia.com
-* @Last modified by:   geyuanjun
-* @Last modified time: 2016-07-15 13:38:10
-*/
-
 #include<iostream>
 using namespace std;
 

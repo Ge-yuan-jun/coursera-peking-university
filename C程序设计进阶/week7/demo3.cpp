@@ -1,12 +1,4 @@
 /**
-* @Author: geyuanjun
-* @Date:   2016-07-15 13:02:21
-* @Email:  geyuanjun.sh@superjia.com
-* @Last modified by:   geyuanjun
-* @Last modified time: 2016-07-15 13:31:2
-*/
-
-/**
 * 结构体做函数参数
 * 相当于copy一份给对方
 * 与js中的对象不同
