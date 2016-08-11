@@ -17,7 +17,7 @@ void renew (student *one) {
 }
 int main() {
   student mike = {123, {'m', 'i', 'k', 'e', '\0'}};
-  renew(&mike)
+  renew(&mike);
   cout << mike.id_num << " " << mike.name << endl; // mike内部的值被改变，不再是被copy一份赋值过去
   return 0;
 }

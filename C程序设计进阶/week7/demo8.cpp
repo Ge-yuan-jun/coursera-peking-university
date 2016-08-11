@@ -9,7 +9,7 @@ struct student {
   int day;
 }stu[100];
 
-void main {
+int main () {
   int i, j, k, n, flag, count[100] = {0};
   cout << "how many students?";
   cin >> n;
@@ -33,4 +33,5 @@ void main {
       }
     }
   }
+  return 0;
 }

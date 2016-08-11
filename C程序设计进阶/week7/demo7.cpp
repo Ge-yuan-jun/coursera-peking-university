@@ -15,7 +15,7 @@ int main() {
     133, {'t', 'o', 'm', '\0'},
     143, {'j', 'a', 'c', 'k', '\0'}
   };
-  student *one = myclass
+  student *one = myclass;
   cout << one->id_num << " " << one->name << endl;
   one++;
   cout << one->id_num << " " << one->name << endl;
