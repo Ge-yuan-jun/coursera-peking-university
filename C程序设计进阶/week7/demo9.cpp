@@ -9,7 +9,7 @@ struct student
   int id;
   student *next;
 };
-struct *create();
+student *create();
 int main() {
   student *pointer = create();
   while (pointer->next !=NULL) {
