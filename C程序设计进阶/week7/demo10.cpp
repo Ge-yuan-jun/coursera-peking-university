@@ -7,6 +7,7 @@ struct Node
 	Node * ahead;
 	Node * next;
 };
+// todo
 Node *Create(int N);
 Node *Search(Node *head, int p);
 Node *Release(Node *head, int M);
