@@ -51,3 +51,23 @@ int main() {
 
 int n;
 const int & r = n;
+
+### 二、常量
+1. 定义常量
+2. 定义常量指针
+    - 不可以通过常量指针修改其指向的内容
+    - 不能把常量指针赋值给非常量指针，反过来可以
+    
+    ```c++
+    const int * p1;int * p2;
+    p1 = p2;    // ok
+    p2 = p1;    // error
+    p2 = (int *)p1; // ok,强制类型转换
+    ```
+    - 函数参数为常量指针时，可避免函数内部不小心改变参数指针所指地方的内容
+    ```c++
+    void MyPrintf ( const char * p ) {
+        strcpy(p, "this"); // 编译出错
+        printf("%s", p); // ok
+    } 
+    ```
