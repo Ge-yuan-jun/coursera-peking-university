@@ -227,20 +227,20 @@ class 类名
 };
 ```
 
-### 七、类的示例
+### 七、类的示例以及类的访问
 ```
 class CRectangle {
   public:
     int w,h;
-  void Init(int w_, int h_) {
-    w = w_;h = h_;
-  }
-  int Area() {
-    return w * h;
-  }
-  int Perimeter() {
-    return 2 * ( w + h);
-  }
+    void Init(int w_, int h_) {
+      w = w_;h = h_;
+    }
+    int Area() {
+      return w * h;
+    }
+    int Perimeter() {
+      return 2 * ( w + h);
+    }
 }; // 必须存在分号
 ```
 
@@ -257,3 +257,138 @@ int main() {
 ```
 
 类定义的变量 -> 类的实例 -> 对象
+
+对象的内存分配
+
+对象的内存空间
+- 对象的大小 = 所有成员变量的大小之和
+- eg. CRectangle类的对象， sizeof(CRectangle) = 8
+
+每个对象各有自己的存储空间
+- 一个对象的某个成员变量被改变，不会影响到其它的对象
+
+对象之间可以用 '=' 进行赋值
+
+不能用'==', '!=', '>', '<', '>=', '<='进行比较
+- 除非这些运算符经过了“重载”
+
+访问类的成员变量和成员函数
+1. 用法1：对象名.成员名 `CRectangle r1, r2; r1.w = 5; r2.Init(3,4);`
+2. 用法2：指针 -> 成员名
+```
+CRectangle r1, r2;
+CRectangle * p1 = &r1;
+CRectangle * p2 = &r2;
+p1->w = 5;
+p2->Init(3, 4); //Init作用在p2指向的对象上
+```
+3. 用法3：引用名.成员名
+```
+CRectangle r2;
+CRectangle & rr = r2;
+rr.w = 5;
+rr.Init(3, 4); //rr的值变了，r2的值也变
+```
+
+另一种输出结果的方式：
+```
+void PrintRectangle(CRectangle & r) {
+  cout << r.Area() << "," << r.Perimeter();
+}
+CRectangle r3;
+r3.Init(3,4);
+PrintRectangle(r3);
+```
+
+##### 类的成员函数的另一种写法
+成员函数体和类的定义分开写
+```
+class CRectangle {
+  public:
+    int w, h;
+    int Area(); // 成员函数仅在此处声明
+    int Perimeter();
+    void Init(int w_, int h_);
+}
+
+int CRectangle::Area() {
+  return w * h;
+}
+int CRectangle::Perimeter() {
+  return 2 * (w + h);
+}
+void CRectangle::Init(int w_, int h_) {
+  w = w_; h =h _;
+}
+```
+
+调用通过：对象、对象的指针、对象的引用
+
+*程序运行期间，一个对象的存储空间内部并没有包含成员函数的指令*
+
+### 八、类成员的可访问范围
+对象成员的访问权限
+1. 定义一个类
+```
+class className {
+  private:
+    私有属性和函数
+  public:
+    公有属性和函数
+  protected:
+    保护属性和函数
+};
+```
+
+缺省为私有成员
+```
+class Man {
+    int nAge; // 私有成员
+    char szName[20]; // 私有成员
+  public:
+    void SetName(char * Name) {
+      strcpy(szName, Name);
+    }
+};
+```
+
+类的成员函数内部，可以访问：
+1. 当前对象的全部属性，函数
+2. 同类其他对象的全部属性，函数
+
+类的成员函数以外的地方：
+1. 只能够访问该类对象的公有成员
+
+举个例子：
+```
+class CEmployee {
+  private:
+    char szName[30]; // 名字
+  public:
+    int salary; // 工资
+    void setName(char * name);
+    void getName(char * name);
+    void averageSalary(CEmployee e1, CEmployee e2);
+};
+void CEmployee::setName(char * name) {
+  strcpy(szName, name); // ok
+}
+void CEmployee::getName(char * name) {
+  strcpy(name, szNamw); // ok
+}
+void CEmployee::averageSalary(CEmployee e1, CEmployee e2) {
+  salary = (e1.salary + e2.salary)/2;
+}
+int main() {
+  CEmployee e;
+  strcpy(e.szName, "Tom123456789"); // 编译错，不能访问私有成员
+  e.setName("Tom"); // ok
+  e.salary = 5000; // ok
+  return 0;
+}
+```
+
+设置私有成员的目的
+1. 强制对成员变量的访问一定要通过成员函数进行
+
+设置私有成员的机制 -- 隐藏
