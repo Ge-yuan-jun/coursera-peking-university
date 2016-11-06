@@ -243,3 +243,15 @@ class CRectangle {
   }
 }; // 必须存在分号
 ```
+
+使用方法：
+```
+int main() {
+  int w, h;
+  CRectangle r; // r是一个对象
+  cin >> w >> h;
+  r.Init(w, h);
+  cout << r.Area() << r.Perimeter();
+  return 0;
+}
+```
