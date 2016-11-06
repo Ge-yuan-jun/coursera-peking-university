@@ -226,3 +226,20 @@ class 类名
     ...
 };
 ```
+
+### 七、类的示例
+```
+class CRectangle {
+  public:
+    int w,h;
+  void Init(int w_, int h_) {
+    w = w_;h = h_;
+  }
+  int Area() {
+    return w * h;
+  }
+  int Perimeter() {
+    return 2 * ( w + h);
+  }
+}; // 必须存在分号
+```
