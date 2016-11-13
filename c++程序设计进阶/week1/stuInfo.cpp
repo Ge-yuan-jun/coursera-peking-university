@@ -10,8 +10,8 @@ class StuInfo {
     int age, grade[4];
   public:
     void Init(char* _stuName, char* _stuNum, int& _age, int* _grade) {
-      strcpy(stuName, _stuName); 
-	  strcpy(stuNum, _stuNum);
+      strcpy(stuName, _stuName);
+      strcpy(stuNum, _stuNum);
       for (int i = 0; i < 4; i++) {
         grade[i] = _grade[i];
       }
@@ -42,6 +42,6 @@ int main() {
   cin >> grade[0] >> mark >> grade[1] >> mark >> grade[2] >> mark >> grade[3];
 
   Student.Init(stuName, stuNum, age, grade);
-  cout << Student.getName() << ',' << Student.getAge() << "," << Student.getNum() << "," << Student.average() << endl; 
+  cout << Student.getName() << ',' << Student.getAge() << "," << Student.getNum() << "," << Student.average() << endl;
   return 0;
 }
