@@ -24,14 +24,14 @@ using namespace std;
 
 class Array2 {
 private:
-  int row, column;
   int *a;
+  int row, column;
 
 public:
   // 构造函数
   Array2() { a = NULL; }
   // 不需要设置默认值
-  Array2(int r = 0, int c = 0) {
+  Array2(int r, int c) {
     row = r;
     column = c;
     a = new int[r * c];
