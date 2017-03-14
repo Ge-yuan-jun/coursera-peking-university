@@ -3,11 +3,11 @@
 #include <iostream>
 using namespace std;
 // 在此处补充你的代码
-class MyString : public string {
+class MyString:public string {
 public:
-  MyString() : string(){};
-  Mystring(const char *s) : string(s){};
-  MyString(const string &s) : string(s){};
+  MyString():string(){};
+  Mystring(const char *s):string(s){};
+  MyString(const string &s):string(s){};
   MyString operator()(int i, int j) { return this->substr(i, j); }
 };
 int CompareString(const void *e1, const void *e2) {
